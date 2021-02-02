@@ -11,8 +11,8 @@
         android:layout_weight="1"
         android:id="@+id/topContainer"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="200dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/top_container_top_margin"
         android:orientation="vertical">
         <TextView
             android:id="@+id/timer"
@@ -20,24 +20,29 @@
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:text="00:00.00"
-            android:textSize="100dp"
+            android:textSize="100sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-        <LinearLayout
-            android:id="@+id/rapContainer"
+        <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:isScrollContainer="true"
-            android:orientation="vertical"
-            android:gravity="center_horizontal">
-        </LinearLayout>
+            android:layout_height="wrap_content">
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:id="@+id/rapContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center_horizontal"/>
+            </ScrollView>
+        </androidx.core.widget.NestedScrollView>
     </LinearLayout>
 
 
     <LinearLayout
-        android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#D0000000"
@@ -51,7 +56,8 @@
             android:layout_height="100dp"
             android:background="@drawable/reset_button"
             android:onClick="resetTimer"
-            android:textColor="#333" />
+            android:textColor="#333"
+            tools:ignore="ButtonStyle" />
         <Button
             android:id="@+id/playButton"
             android:layout_width="100dp"
@@ -59,14 +65,16 @@
             android:layout_marginHorizontal="20dp"
             android:background="@drawable/play_button"
             android:onClick="startTimer"
-            android:textColor="#333" />
+            android:textColor="#333"
+            tools:ignore="ButtonStyle" />
         <Button
             android:id="@+id/rapButton"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:background="@drawable/rap_button"
             android:onClick="rapTimer"
-            android:textColor="#333" />
+            android:textColor="#333"
+            tools:ignore="ButtonStyle" />
 
 
 
